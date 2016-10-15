@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+GAPPS_VARIANT := stock
+
 TARGET_KERNEL_CONFIG := aosp_shinano_scorpion_defconfig
 
 DEVICE_PACKAGE_OVERLAYS += \
@@ -47,6 +49,8 @@ PRODUCT_PACKAGES += \
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/scorpion_windy/aosp_sgp6xx_common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, vendor/qcom/firmware/qcom-modem-firmware.mk)
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
 
 PRODUCT_NAME := aosp_sgp621
 PRODUCT_DEVICE := scorpion
